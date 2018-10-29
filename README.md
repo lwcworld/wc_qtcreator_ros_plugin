@@ -61,18 +61,17 @@ Editing package.xml and CMakeList.txt
 - 'CMakeList.txt' example
 ```
 cmake_minimum_required(VERSION 2.8.3)  
-project(hello_world)  
+project(wc_world)  
       
       
 find_package(catkin REQUIRED COMPONENTS  
-  std_msgs roscpp  
+  std_msgs roscpp  rospy
 )  
       
       
 catkin_package(  
 #  INCLUDE_DIRS include  
   LIBRARIES hello_world  
-  CATKIN_DEPENDS std_msgs roscpp  
   DEPENDS system_lib  
 )  
       
@@ -81,9 +80,8 @@ include_directories(
   ${catkin_INCLUDE_DIRS}  
 )  
       
-add_executable(hello_world_node src/hello_world_node.cpp)  
-add_dependencies(hello_world_node hello_world_generate_messages_cpp)  
-target_link_libraries(hello_world_node ${catkin_LIBRARIES})  
+add_executable(wc_world_node src/wc_world_node.cpp)  
+target_link_libraries(wc_world_node ${catkin_LIBRARIES})  
 ```
 
 Project setting
