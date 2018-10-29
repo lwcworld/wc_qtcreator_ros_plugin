@@ -1,0 +1,1 @@
+# wc_qtcreator_ros_plugin
