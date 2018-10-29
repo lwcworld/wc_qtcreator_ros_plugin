@@ -26,4 +26,55 @@ Create Workspace
 Make ROS pacakage
 - right click on 'ros_test'
 - 'Add New'
+- set package name 'wc_world'
+- in Dependencies ->  Catkin, write 'std_msgs roscpp rospy'
+- Finish
+
+Add .cpp source code
+- right click 'wc_world'
+- click 'Show Containing Folder'
+- add new directory 'src', 'include'
+- click 'Filter Tree' to see 'Hide Empty Directories'
+- add new .cpp file in 'src' folder (wc_world_node.cpp)
+
+Editing package.xml and CMakeList.txt
+- 'pacakge.xml' example
+```
+<buildtool_depend>catkin</buildtool_depend>  
+      
+<build_depend>std_msgs</build_depend>  
+<build_depend>roscpp</build_depend>  
+      
+<exec_depend>std_msgs</exec_depend>  
+<exec_depend>roscpp</exec_depend>  
+```
+
+- 'CMakeList.txt' example
+```
+
+    cmake_minimum_required(VERSION 2.8.3)  
+    project(hello_world)  
+      
+      
+    find_package(catkin REQUIRED COMPONENTS  
+      std_msgs roscpp  
+    )  
+      
+      
+    catkin_package(  
+    #  INCLUDE_DIRS include  
+      LIBRARIES hello_world  
+      CATKIN_DEPENDS std_msgs roscpp  
+      DEPENDS system_lib  
+    )  
+      
+    include_directories(  
+    # include  
+      ${catkin_INCLUDE_DIRS}  
+    )  
+      
+    add_executable(hello_world_node src/hello_world_node.cpp)  
+    add_dependencies(hello_world_node hello_world_generate_messages_cpp)  
+    target_link_libraries(hello_world_node ${catkin_LIBRARIES})  
+```
 
