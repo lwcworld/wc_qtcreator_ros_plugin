@@ -77,3 +77,15 @@ add_dependencies(hello_world_node hello_world_generate_messages_cpp)
 target_link_libraries(hello_world_node ${catkin_LIBRARIES})  
 ```
 
+Project setting
+- default setting is to build all the packages in the workspace(catkin_ws) which means consume large time
+- let's set to build only one package
+- go to 'Projects' tab on the left
+- go to 'Build', expand 'Build Steps' and 'Clean Steps, set 'CatkinTools Arguments' as package name ('wc_world')
+- go to 'Run', expand 'Run' and set 'Package' and 'Target' as 'wc_world' and 'wc_world_node'
+
+Execution
+- 'ROS terminal' is needed
+- run 'roscore'
+- build using 'Ctrl + R' or 'Build -> Run'
+
