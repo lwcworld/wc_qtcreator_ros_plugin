@@ -13,6 +13,15 @@ installation guide (http://blog.rovitek.com/44)
 - check 'Execute: Allow executing file as program'
 - double click the file to install
 
+Run qtcreator
+------
+```
+cd QtCreator/latest/bin
+```
+```
+sudo ./qtcreator-ros
+```
+
 making ROS package
 ------
 Create Workspace
